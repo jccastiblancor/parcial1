@@ -22,7 +22,7 @@ const tableHeaders = ["Item", "Qty.", "Description", "Unit Price", "Ammount"];
 Shopping cart methods
 */
 const renderAmount = () => {
-  amount.innerHTML = ` ${total} <p> items</p>`;
+  amount.innerHTML = `<p> ${total} items</p>`;
   if (total === 0) {
     amount.innerHTML = "";
   }
@@ -54,32 +54,26 @@ const renderRow = (row, data) => {
   row.appendChild(tableData);
 };
 
-const cancel = () => {
-  console.log("cancel");
-};
-
 const confirm = () => {
   console.log(cart);
 };
 
 const renderOrderOptions = (tp) => {
-  var optionsDiv = document.createElement("DIV");
-  optionsDiv.classList.add("row");
-
   var optionsDiv1 = document.createElement("DIV");
   optionsDiv1.classList.add("col-6");
   var btnDiv = document.createElement("DIV");
   btnDiv.classList.add("col-6");
-  btnDiv.classList.add("float-right");
 
   var optionsP = document.createElement("P");
   optionsP.appendChild(document.createTextNode(`Total $${tp.toFixed(2)}`));
   optionsP.classList.add("bold");
 
+  var btnGroup = document.createElement("DIV");
+  btnGroup.className = "btn-group float-right";
+
+  btnGroup.setAttribute("role", "group");
+
   var btn1 = document.createElement("BUTTON");
-  btn1.addEventListener("click", function () {
-    cancel();
-  });
   btn1.appendChild(document.createTextNode("Cancel"));
   btn1.classList.add("btn");
   btn1.classList.add("btn-danger");
@@ -94,13 +88,13 @@ const renderOrderOptions = (tp) => {
   btn2.classList.add("btn");
   btn2.classList.add("btn-success");
 
-  btnDiv.appendChild(btn1);
-  btnDiv.appendChild(btn2);
+  btnGroup.appendChild(btn1);
+  btnGroup.appendChild(btn2);
+  btnDiv.appendChild(btnGroup);
   optionsDiv1.appendChild(optionsP);
-  optionsDiv.appendChild(optionsDiv1);
-  optionsDiv.appendChild(btnDiv);
 
-  content.appendChild(optionsDiv);
+  content.appendChild(optionsDiv1);
+  content.appendChild(btnDiv);
 };
 
 const renderOrder = () => {
@@ -132,7 +126,7 @@ const renderOrder = () => {
     renderRow(tableRow, `${qty}`);
     renderRow(tableRow, `${description}`);
     renderRow(tableRow, `${price}`);
-    renderRow(tableRow, `${price * qty}`);
+    renderRow(tableRow, `${(price * qty).toFixed(2)}`);
 
     tableBody.appendChild(tableRow);
     totalPrice += price * qty;
@@ -162,9 +156,11 @@ const renderCards = (num) => {
 
   json[num].products.map(({ image, name, description, price }) => {
     var div = document.createElement("DIV");
-    div.classList.add("card");
     div.classList.add("col-12");
-    div.classList.add("col-md-3");
+    div.classList.add("col-sm-4");
+    div.classList.add("col-lg-3");
+    var cardDiv = document.createElement("DIV");
+    cardDiv.classList.add("card");
     var img = document.createElement("IMG");
     img.classList.add("card-img-top");
     img.setAttribute("src", `${image}`);
@@ -184,7 +180,7 @@ const renderCards = (num) => {
     var p2 = document.createElement("P");
     p2.classList.add("card-text");
     p2.classList.add("bold");
-    p2.appendChild(document.createTextNode(`${price}`));
+    p2.appendChild(document.createTextNode(`$${price}`));
 
     var btn = document.createElement("BUTTON");
     btn.addEventListener("click", function () {
@@ -194,13 +190,14 @@ const renderCards = (num) => {
     btn.classList.add("btn");
     btn.classList.add("btn-dark");
 
-    div.appendChild(img);
+    cardDiv.appendChild(img);
     div3.appendChild(h5);
     div3.appendChild(p);
-    div3.appendChild(p2);
     div2.appendChild(div3);
+    div2.appendChild(p2);
     div2.appendChild(btn);
-    div.appendChild(div2);
+    cardDiv.appendChild(div2);
+    div.appendChild(cardDiv);
     content.appendChild(div);
   });
 };

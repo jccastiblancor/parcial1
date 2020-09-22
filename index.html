@@ -12,41 +12,52 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- As a heading -->
-    <div>
-      <nav class="navbar navbar-light bg-light fixed-top">
-        <span class="navbar-brand mb-0 h1">Restaurant & Lounge</span>
-        <div class="row">
-          <div class="col-4">
-            <img
-              id="cart"
-              src="https://i.imgur.com/1EKrQIi.png"
-              alt="shopping cart"
-              height="40px"
-            />
-          </div>
-          <div id="amount" class="col cart-amount"></div>
-        </div>
-      </nav>
-    </div>
-
     <div class="container">
+      <!-- As a heading -->
+      <div>
+        <nav class="navbar navbar-light bg-light fixed-top">
+          <span class="navbar-brand mb-0 h1 navbar-satisfy"
+            >Restaurant & Lounge</span
+          >
+          <div class="row">
+            <div class="col-4">
+              <img
+                id="cart"
+                src="https://i.imgur.com/1EKrQIi.png"
+                alt="shopping cart"
+                height="40px"
+              />
+            </div>
+            <div id="amount" class="col cart-amount"></div>
+          </div>
+        </nav>
+      </div>
+
       <header>
+        <hr />
         <!-- banner-->
-        <div
-          class="card card-image"
-          style="background-image: url('https://i.imgur.com/S8Ffdqa.png')"
-        >
-          <div class="text-center py-5 px-4 my-5">
-            <div></div>
+        <div class="row row-style">
+          <div class="col-12">
+            <img
+              class="img-responsive"
+              src="https://i.imgur.com/S8Ffdqa.png"
+              alt="banner"
+            />
           </div>
         </div>
       </header>
       <!-- Navbar -->
-      <div>
-        <nav class="navbar navbar-dark bg-dark">
+
+      <hr />
+
+      <div class="row-style">
+        <nav class="navbar navbar-dark bg-dark row-content">
           <span id="burguers" class="navbar-brand mb-0 h1">Burguers</span>
           <span id="tacos" class="navbar-brand mb-0 h1">Tacos</span>
           <span id="salads" class="navbar-brand mb-0 h1">Salads</span>
@@ -56,9 +67,12 @@
       </div>
 
       <main>
-        <br />
-        <h1 id="title"></h1>
+        <hr />
+        <div class="row-style">
+          <h1 id="title"></h1>
+        </div>
 
+        <hr />
         <div id="content" class="row"></div>
 
         <!-- Modal -->

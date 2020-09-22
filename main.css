@@ -4,25 +4,24 @@ footer {
 }
 
 h1 {
-  min-height: 100px;
-  border-style: groove;
-  padding: 20px 0px;
   text-align: center;
 }
 
 .card {
   padding: 20px 10px;
+  margin: 15px 0px;
 }
 
 .card-img-top {
   min-height: 200px;
+  max-height: 300px;
 }
 
 .card-content {
-  min-height: 250px;
+  min-height: 300px;
 }
 
-.card-bold {
+.bold {
   font-weight: bold;
 }
 
@@ -32,9 +31,27 @@ h1 {
 }
 
 body {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .fixed-top {
-  min-height: 100px;
+  min-height: 70px;
+}
+
+.row-style {
+  margin: 0px auto;
+  padding: 5px 0px;
+}
+
+.img-responsive {
+  max-width: 100%;
+}
+
+.navbar-satisfy {
+  font-family: satisfy;
+  font-size: large;
+}
+
+nav span {
+  cursor: pointer;
 }
