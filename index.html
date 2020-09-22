@@ -16,16 +16,19 @@
   <body>
     <!-- As a heading -->
     <div>
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light fixed-top">
         <span class="navbar-brand mb-0 h1">Restaurant & Lounge</span>
-
-        <img
-          onclick="resume()"
-          src="https://i.imgur.com/1EKrQIi.png"
-          alt="shopping cart"
-          height="40px"
-        />
-        <div id="amount"></div>
+        <div class="row">
+          <div class="col-4">
+            <img
+              id="cart"
+              src="https://i.imgur.com/1EKrQIi.png"
+              alt="shopping cart"
+              height="40px"
+            />
+          </div>
+          <div id="amount" class="col cart-amount"></div>
+        </div>
       </nav>
     </div>
 
@@ -44,44 +47,67 @@
       <!-- Navbar -->
       <div>
         <nav class="navbar navbar-dark bg-dark">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item" onclick="renderCards(0)">
-                <div class="nav-link">Burgers</div>
-              </li>
-              <li class="nav-item" onclick="renderCards(1)">
-                <div class="nav-link">Tacos</div>
-              </li>
-              <li class="nav-item" onclick="renderCards(2)">
-                <div class="nav-link">Salads</div>
-              </li>
-              <li class="nav-item" onclick="renderCards(3)">
-                <div class="nav-link">Dessers</div>
-              </li>
-              <li class="nav-item" onclick="renderCards(4)">
-                <div class="nav-link">Drinks & Slides</div>
-              </li>
-            </ul>
-          </div>
+          <span id="burguers" class="navbar-brand mb-0 h1">Burguers</span>
+          <span id="tacos" class="navbar-brand mb-0 h1">Tacos</span>
+          <span id="salads" class="navbar-brand mb-0 h1">Salads</span>
+          <span id="desserts" class="navbar-brand mb-0 h1">Desserts</span>
+          <span id="drinks" class="navbar-brand mb-0 h1">Drinks & Sides</span>
         </nav>
       </div>
 
       <main>
         <br />
-        <h1>Burgers</h1>
+        <h1 id="title"></h1>
 
-        <div id="cards" class="card-group"></div>
+        <div id="content" class="row"></div>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="delete_modal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Cancel the order
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure about cancelling the order?
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  NO, I want to continue adding products
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="drop"
+                  data-dismiss="modal"
+                >
+                  Yes, I want to cancel the order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
 
       <footer>

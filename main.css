@@ -25,3 +25,16 @@ h1 {
 .card-bold {
   font-weight: bold;
 }
+
+.cart-amount {
+  text-align: center;
+  padding: 10px;
+}
+
+body {
+  padding-top: 100px;
+}
+
+.fixed-top {
+  min-height: 100px;
+}
