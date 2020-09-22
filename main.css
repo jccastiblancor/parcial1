@@ -1,0 +1,27 @@
+footer {
+  text-align: center;
+  padding: 30px 0px;
+}
+
+h1 {
+  min-height: 100px;
+  border-style: groove;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+.card {
+  padding: 20px 10px;
+}
+
+.card-img-top {
+  min-height: 200px;
+}
+
+.card-content {
+  min-height: 250px;
+}
+
+.card-bold {
+  font-weight: bold;
+}
